@@ -6,7 +6,7 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-	$response = json_decode(curl_exec($ch));
+	$response = json_decode(curl_exec($ch), true);
 	
 	if(!empty($response['data'])){
 		echo "I Like";
