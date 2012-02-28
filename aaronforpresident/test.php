@@ -6,7 +6,7 @@
 		'secret' => '8e870b4559171dad72c5201b7a0d6c4b',
 	));
 
-	$user = $facebook->getUser;
+	$user = $facebook->getUser();
 
 	print_r($user);
 ?>
