@@ -6,7 +6,8 @@
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 	$response = json_decode(curl_exec($ch), true);
-	
+  
+  print_r($response);  
 	if(empty($response['data'])){
 		echo '<html><head><title>Aaron McGee for President</title></head><body><img src="aaron.jpg" alt="aaron for president" width ="500px" height="700px"></img></body></head>';
 	}else{
