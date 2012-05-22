@@ -1,0 +1,49 @@
+<head>
+  <meta charset="utf-8">
+  <title>ToDo App Tutorial</title>
+</head>
+
+<body>
+  <section id="todoapp">
+    {{> todo}}
+  </section>
+
+  <footer id="info">
+    <p>Double-click to edit a todo</p>
+  </footer>
+</body>
+
+<template name="todo">
+  <header id="header">
+    <h1>todos</h1>
+    <input id="new-todo" placeholder="What needs to be done?" autofocus>
+  </header>
+
+  <section id="main">
+    <input id="toggle-all" type="checkbox">
+    <label for="toggle-all">Mark all as complete</label>
+    <ul id="todo-list">
+          {{#each tasks}}
+          {{> item}}
+          {{/each}}
+    </ul>
+  </section>
+
+  {{#if hasTodo}}
+  <footer id="footer">
+    <span id="todo-count"><strong id="incompleted">{{ incompleted }}</strong>{{ incompleted_text }}</span>
+    <button id="clear-completed">Clear completed (<span id="completed">{{ completed }}</span>)</button>
+  </footer>
+  {{/if}}
+</template>
+
+<template name="item">
+  <li class="{{#if editing}}editing{{/if}} {{#if completed}}completed{{/if}}">
+    <div class="view">
+      <input class="toggle" type="checkbox" {{#if completed}}checked{{/if}}>
+      <label>{{ title }}</label>
+      <button class="destroy"></button>
+    </div>
+    <input class="edit" value="{{ title }}">
+  </li>
+</template>
