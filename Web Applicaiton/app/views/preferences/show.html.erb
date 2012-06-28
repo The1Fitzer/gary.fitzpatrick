@@ -1,0 +1,21 @@
+<div class="content">
+	<div class="hero-unit">
+		<h2>You're all done</h2>
+		<p>Thank you for following the 4 easy steps. We now have all the information
+			needed to build your EBCard. Please copy the API Key below because 
+			you will need it to create your site</p>
+		<p id="notice"><%= notice %></p>
+
+		<h5>API Key</h5>
+		<p>
+  			<%= @preference.apikey %>
+		</p><br/>
+		
+		<p>If you made a mistake or would like to edit any of the information
+			please click the edit button below</p>
+			
+		<%= link_to 'Edit', edit_preference_path(@preference), :class => 'btn primary' %>
+
+	</div>
+</div>
+

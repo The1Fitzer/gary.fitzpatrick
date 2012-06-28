@@ -1,0 +1,47 @@
+<div class="container-fluid">
+	<div class="sidebar">
+		<div class="well">
+			<h5>News and Info</h5>
+			<p>RailsPress is up and running! You can have your very own
+				website in a few easy steps</p>
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="hero-unit" style ="margin-top: 0px !important;">
+		
+		<% if current_user %>
+			<h1>Welcome</h1>
+			<p>Hi <b><%= current_user.username %></b> and welcome to the app</p>
+			<p>To get started building your new E-Business Card just click <%= link_to 'here', new_preference_path, :alt => "Click here to create a new EBCard" %>.
+				Just before your start i would like to draw your attention the the following information:</p><br/><br/><br/>
+			<ul style="font-size: 18px !important;">
+				<li>To build your E-Business Card you must have be using a computer
+					that has Rails installed. We recommend that only Mac and
+					Linux users use this application</li><br/>
+				<li>You must have our GemFile installed on your machine.
+					This is crucial as this will build your EBCard</li><br/>
+				<li>Once you have gone through and created a new website
+					from this web app you must run the following commands from
+					your terminal (once you have installed our gem):</li><br/>
+					<ul>
+						<li>railspress setup YOUR_API_KEY</li><br/>
+						<li>railspress prefs</li><br/>
+						<li>railspress build</li><br/>
+					</ul>
+				<li>One final note is that you must have a folder on your
+					desktop called railspressdata</li>
+			</ul>
+			
+		<% else %>
+			<h1>Hello!</h1> <br/>
+				<p>Welcome to RailsPress. Rails press is an simple and easy way for you 
+				to build your own E-Business Card. Its straight forward and simple. Click the register
+				link above to register to start using the application, or if your already
+				resisted just click login and get started.</p>
+		<% end %>
+		</table>
+		</div>
+	</div>
+</div>
+

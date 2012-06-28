@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webappproject</title>
+  <%= stylesheet_link_tag "bootstrap" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="topbar">
+		<div class="fill">
+			<div class="container">
+				<h3><a class="brand" href="/users" alt="Home PAge">RailsPress</a></h3>
+				<ul class="nav">
+				<% if current_user %>
+					<li><%= link_to "Home", "/users", :alt => "Home Page" %></li>
+					<li><%= link_to "Edit User Profile", edit_user_path(current_user.id), :alt => "Edit User Profile"%></li>
+					<li><%= link_to 'Create New EBCard', new_preference_path, :alt => "Create new EBCard" %></li>
+					<li><%= link_to 'View current EBCards', "/preferences", :alt => "View current cards" %></li>
+					<li><%= link_to "Logout", :logout, :alt => "Log out"%></li>
+				<% else %>
+					<li><%= link_to "Register", new_user_path, :alt => "Click here to Register" %></li>
+					<li><%= link_to "Login", :login, :alt => "Click here to Login" %></li>
+				<% end %>
+				</ul>
+				<% if current_user %>
+				<p style="float:right !important; padding-top: 10px; color: white;">Logged in as:<b> <%= current_user.username %></b></p>
+				<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+<%= yield %>
+
+</body>
+</html>

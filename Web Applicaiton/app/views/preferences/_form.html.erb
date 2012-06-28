@@ -1,0 +1,89 @@
+<%
+	size = 24
+	s = ""
+	size.times { s << (i = Kernel.rand(62); i += ((i < 10) ? 48 : ((i < 36) ? 55 : 61 ))).chr }
+	
+%>
+<div class="container-fluid">
+	<div class="sidebar">
+		<div class="well">
+			<h5>How to build your EBCard</h5><br />
+			<h6>Step 1</h6>
+			<p>Your email has already been entered into the form.
+				Please do not delete this</p>
+			<h6>Step 2</h6>
+			<p>In the choose a color section, simply type
+				in a color for your card. We recommend you
+				do not choose black</p>
+			<h6>Step 3</h6>
+			<p>Fill in all the fields in relation to 
+				your own or your companies address.
+				This will be posted on the contact page of your 
+				new website</p>
+			<h6>Step 4</h6>
+			<p>Click the 'Create New Card' button.
+				It couldn't be easier!!</p>
+			
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="hero-unit" style="margin-top: 0px !important;">
+			<h1>Create Your E-Business Card</h1>
+			<p>Fill in the form below and click the 'Create new card' button</p><br/><br/>
+			<%= form_for(@preference) do |f| %>
+  				<% if @preference.errors.any? %>
+    			<div id="error_explanation">
+      				<h2><%= pluralize(@preference.errors.count, "error") %> stopped you from creating your card:</h2>
+
+      				<ul>
+      					<% @preference.errors.full_messages.each do |msg| %>
+        				<li><%= msg %></li>
+      					<% end %>
+      				</ul>
+    			</div>
+  				<% end %>
+					<table>
+						<tr>
+    						<td>Your Email</td>
+    						<td><%= f.text_field :customer_email, :value=> current_user.email %></td>	
+						</tr>
+						<tr>
+    						<td>Choose a color</td>
+    						<td><%= f.text_field :linkstylesheet %></td>
+  						</tr>
+						<tr>
+    						<td>Contact Number</td>
+    						<td><%= f.number_field :contactnumber %></td>
+  						</tr>
+						<tr>
+    						<td>Address Line 1</td>
+    						<td><%= f.text_field :address1 %></td>
+  						</tr>
+						<tr>
+    						<td>Address Line 2</td>
+   							<td><%= f.text_field :address2 %></td>
+						</tr>
+    					<tr>
+							<td>Town</td>
+    						<td><%= f.text_field :town %></td>
+						</tr>
+    					<tr>
+							<td>County</td>
+							<td><%= f.text_field :county %></td>
+						</tr>
+    					<tr>
+							<td>Country</td>
+							<td><%= f.text_field :country%></td>
+						</tr>
+						
+							<%= f.hidden_field :apikey, :value => s %>
+  						<tr>
+							<td></td>
+    						<td><%= f.submit 'Create New Card', :class => 'btn success', :alt => "Create new card" %></td>
+						</tr>
+					</table>
+				<% end %>
+		</div>
+	</div>
+</div>

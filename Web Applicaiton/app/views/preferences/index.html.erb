@@ -1,0 +1,50 @@
+<div class="content">
+	<div class="hero-unit">
+<% if current_user %>
+<h4>Listing EB-Cards</h4><br />
+<p>Below is the list of all your current E-Business Cards. If you wish you can 
+	edit them or delete the information from our servers</p><br/>
+
+<table>
+  <tr>
+	<th>Website id</th>
+    <th>Customer email</th>
+    <th>Stylsheet Chosen</th>
+    <th>Contact Number</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>Town</th>
+    <th>County</th>
+    <th>Country</th>
+	<th>Api Key</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+	
+	<% @preferences.each do |preference| %>
+  <tr>
+	<td><%= preference.id %></td>
+    <td><%= preference.customer_email %></td>
+    <td><%= preference.linkstylesheet %></td>
+    <td><%= preference.contactnumber %></td>
+    <td><%= preference.address1 %></td>
+    <td><%= preference.address2 %></td>
+    <td><%= preference.town %></td>
+    <td><%= preference.county %></td>
+    <td><%= preference.country %></td>
+	<td><%= preference.apikey %></td>
+    <td><%= link_to 'Edit', edit_preference_path(preference), :class => 'btn primary' %></td>
+    <td><%= link_to 'Destroy', preference, :confirm => 'Are you sure?', :method => :delete, :class => 'btn danger' %></td>
+  </tr>
+	<% end %>
+</table>
+<% else %>
+	<h3>Warning</h3><br/>
+	<p>You must be logged in to view the E-Business Cards you have created.
+		Please click login if you already have an account. Else click on 
+		the register button</p>
+<% end %>
+	</div>
+</div>
+
