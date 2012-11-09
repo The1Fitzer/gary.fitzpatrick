@@ -1,0 +1,7 @@
+body {
+	font-family: Tahoma;
+	font-size: 13px;
+}
+input#messageBox{
+	width: 400px;
+}

@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="hero-unit">
+			<h3>Login</t3>
+			<p>If you have already registered you can login here
+				so you can start giving your preferences for the app</p>
+			<%= form_for(@user_session) do |f| %>
+  			<% if @user_session.errors.any? %>
+    		<div id="error_explanation">
+      			<h2><%= pluralize(@user_session.errors.count, "error") %> stopped you from logging in:</h2>
+
+      			<ul>
+      				<% @user_session.errors.full_messages.each do |msg| %>
+        			<li><%= msg %></li>
+      				<% end %>
+      			</ul>
+    		</div>
+  			<% end %>
+			<table>
+  				<tr>
+    				<td><%= f.label :username %></td>
+    				<td><%= f.text_field :username %></td>
+				</tr>
+  				<tr>
+    				<td><%= f.label :password %></td>
+    				<td><%= f.password_field :password %></td>
+  				</tr>
+    			<tr>
+					<td></td>
+					<td><%= f.submit 'Login', :class => 'btn' %></td>
+				</tr>
+			</table>	
+  		<% end %>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+#!/usr/bin/ruby
+$:.unshift(File.dirname(__FILE__) + '/../lib') unless $:.include?(File.dirname(__FILE__) + '/../lib')
+
+require 'rubygems'
+require 'railspress'
+require 'rest_client'
+require 'json'
+require 'etc'
+
+if $ARGV[0] == "--help" or $ARGV[0] == "-h"
+  puts "********************************************\n
+                  WELCOME TO RAILSPRESS         \n
+                                                \n
+                This is the help, and will      \n
+                display any help you need       \n
+                                                \n
+        ********************************************\n
+        NOTE:
+          If you do not have an API Key please go
+          to our website to build an EB-Card to get
+          one!\n\n
+        HOW TO START:\n
+          1. type railspress setup YOUR_API_KEY\n\n
+        
+        HOW TO CONTINUE:\n
+          2. After setting up the API key
+             open your terminal and type railspress prefs\n
+          3. Once this is done, type railspress build
+             and watch the magic happen "
+  exit(0)
+elsif $ARGV[0] == "setup"
+  Railspress::Railspress.setup($ARGV[1])
+  exit(0)
+elsif $ARGV[0] == "prefs"
+  @railspress = Railspress::Railspress.new
+  @railspress.prefs
+  exit(0)
+elsif $ARGV[0] == "build"
+  @railspress = Railspress::Railspress.new
+  @railspress.build
+  exit(0)
+end

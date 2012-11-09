@@ -1,0 +1,62 @@
+<div class="content">
+	<div class="hero-unit" style="margin-top: 0px !important;">
+		<h1>Update Info</h1><br/>
+		<p>If you would like to update the information for your E-Business Card
+			just change the info in the field below and click the
+			'Update Site Info' </p><br/><br/>
+		<%= form_for(@preference) do |f| %>
+			<% if @preference.errors.any? %>
+			<div id="error_explanation">
+  				<h2><%= pluralize(@preference.errors.count, "error") %> stopped you from updating your EBCard info:</h2>
+
+  				<ul>
+  					<% @preference.errors.full_messages.each do |msg| %>
+    				<li><%= msg %></li>
+  					<% end %>
+  				</ul>
+			</div>
+			<% end %>
+				<table>
+					<tr>
+						<td>Your Email</td>
+						<td><%= f.text_field :customer_email, :value=> current_user.email %></td>	
+					</tr>
+					<tr>
+						<td>Choose a stylesheet</td>
+						<td><%= f.text_field :linkstylesheet %></td>
+					</tr>
+					<tr>
+						<td>Contact Number</td>
+						<td><%= f.number_field :contactnumber %></td>
+					</tr>
+					<tr>
+						<td>Address Line 1</td>
+						<td><%= f.text_field :address1 %></td>
+					</tr>
+					<tr>
+						<td>Address Line 2</td>
+						<td><%= f.text_field :address2 %></td>
+					</tr>
+					<tr>
+						<td>Town</td>
+						<td><%= f.text_field :town %></td>
+					</tr>
+					<tr>
+						<td>County</td>
+						<td><%= f.text_field :county %></td>
+					</tr>
+					<tr>
+						<td>Country</td>
+						<td><%= f.text_field :country%></td>
+					</tr>
+					
+					<tr>
+						<td></td>
+						<td><%= f.submit 'Update Site Info', :class => 'btn success' %></td>
+					</tr>
+				</table>
+			<% end %>
+			<%= link_to 'Show', @preference, :class => 'btn primary' %>&nbsp;&nbsp;&nbsp;&nbsp;
+			<%= link_to 'Back', preferences_path, :class => 'btn primary' %>
+	</div>
+</div>
