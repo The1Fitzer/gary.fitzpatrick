@@ -31,6 +31,7 @@ module Railspress
         file.close
 	     
 	     #Send GET Request using RestClient
+	     #Change Here
 	     puts "Retrieving your preferences....\n\n"
 	     data = RestClient.get 'http://0.0.0.0:3000/preferences/grab', {:params => {:apikey => apikey}}
       
