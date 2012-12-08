@@ -2,7 +2,55 @@ body{
   background-color: #f3f3ea;
   margin: 20px 0 0 0;
   padding: 0 0 55px 0;
-  background-image: url(../images/site-bg4.jpg);
+  background: url(site-bg4.jpg) repeat-x;
   font-family: Arial,Helvetica;
   color: #534A47;
+}
+ul{
+  list-style: none;
+}
+#container {
+  color: #534a47;
+  font-size: 14px;
+  width: 945px;
+  margin: 0 auto;
+  padding: 2px 0 0 0;
+}
+#top {
+  height: 110px;
+  padding: 8px 0 6px 0;
+  color: #648293;
+}
+#logo {
+  height: 87px;
+  width: 100%;
+  float: left;
+  padding: 12px 20px 0 0;
+  font-size: 72px;
+  font-family: 'Gafata', sans-serif;
+}
+#menu {
+  height: 40px;
+  border-bottom: 1px solid #dbdbd1; 
+  border-top: 1px solid #dbdbd1; 
+}
+#cats {
+  padding-left: 2px;
+  padding-bottom: 10px;
+}
+#cats li {
+  float: left;
+  line-height: 40px;
+  margin-right: 30px;
+}
+#cats li a {
+  float: left;
+  line-height: 40px;
+  text-decoration: none !important;
+}
+a.active {
+  border-bottom: solid 1px #ca4c3f;
+}
+.clear{
+  clear: both;
 }
