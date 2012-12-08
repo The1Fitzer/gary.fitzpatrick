@@ -1,6 +1,8 @@
 Smithautoparts::Application.routes.draw do
+  get "welcome/home"
+
   resources :products
   resource :assets
 
-  root :to => 'products#index'
+  root :to => 'welcome#home'
 end

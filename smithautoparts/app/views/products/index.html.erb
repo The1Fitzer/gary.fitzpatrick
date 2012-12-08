@@ -1,4 +1,10 @@
-<h1>Listing products</h1>
+<h2>
+  Search All Products
+  <%= form_tag products_path, :method => 'get' do %>
+    <%= text_field_tag :search_query, params[:search_query], :placeholder => 'Type Something' %>
+    <%= submit_tag "Search", :name => nil, :class => 'btn' %>
+  <% end %>
+</h2>
 
 <table>
   <tr>

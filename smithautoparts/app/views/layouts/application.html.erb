@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Smithautoparts</title>
+  <title>Smith Auto Parts</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
@@ -18,24 +19,33 @@
     <div id="cats">
       <ul>
         <li>
-          <a class='active' href='google.com'>Home</a>
+          <%= link_to 'Home', {:controller=>'welcome', :action=>'home'}, :class=>'active' %> 
         </li>
         <li>
-          Products
+          <%= link_to 'Products', {:controller=>'products', :action=>'index'} %> 
         </li>
         <li>
-          News
+         <a href='#'>News</a>
         </li>
         <li>
-          Gallery
+          <a href='#'>Gallery</a>
         </li>
         <li>
-          Contact Us
+          <a href='#'>Contact Us</a>
         </li>
       </ul>
     </div>
   </div>
 <%= yield %>
+</div>
+
+<div id="fixed-bar">
+ <div id="fixed-bar-content">
+  <div>
+    <a href="#" title="Tweet This" class="footer-twitter" target="_blank"></a>
+  <a href="#" title="Share on Facebook" class="footer-facebook" target="_blank"></a>
+  </div>
+ </div>
 </div>
 </body>
 </html>
